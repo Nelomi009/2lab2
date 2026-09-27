@@ -8,9 +8,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _2lab2 // Укажи свое пространство имен (namespace проекта)
+namespace _2lab2 
 {
-  public partial class Form2 : Form // Если форма называется task1, оставь имя task1
+  public partial class Form2 : Form
   {
     private CancellationTokenSource _cts;
     private bool _isSortingRunning = false;
@@ -21,9 +21,7 @@ namespace _2lab2 // Укажи свое пространство имен (names
       dataGridView1.AutoGenerateColumns = false;
     }
 
-    // ==========================================
     // 1. СНЯТИЕ ДАННЫХ И ВАЛИДАЦИЯ
-    // ==========================================
     private List<int> GetInputData() {
       List<int> data = new List<int>();
       foreach (DataGridViewRow row in dataGridView1.Rows) {
@@ -41,9 +39,7 @@ namespace _2lab2 // Укажи свое пространство имен (names
       return data;
     }
 
-    // ==========================================
     // 2. ОТРИСОВКА СТОЛБИКОВ В PICTUREBOX
-    // ==========================================
     private void DrawArray(PictureBox pb, int[] arr, int activeIdx1 = -1, int activeIdx2 = -1) {
       if (arr == null || arr.Length == 0 || pb.Width <= 0 || pb.Height <= 0) return;
 
@@ -89,9 +85,7 @@ namespace _2lab2 // Укажи свое пространство имен (names
       }));
     }
 
-    // ==========================================
     // 3. АЛГОРИТМЫ СОРТИРОВОК
-    // ==========================================
 
     // 1. Пузырьковая
     private async Task<long> BubbleSortAsync(int[] arr, PictureBox pb, bool asc, CancellationToken token) {
@@ -219,9 +213,7 @@ namespace _2lab2 // Укажи свое пространство имен (names
       return sw.ElapsedMilliseconds;
     }
 
-    // ==========================================
     // 4. ОБРАБОТЧИКИ МЕНЮ (MenuStrip)
-    // ==========================================
 
     // Запуск сортировок
     private async void menuStartSort_Click(object sender, EventArgs e) {
